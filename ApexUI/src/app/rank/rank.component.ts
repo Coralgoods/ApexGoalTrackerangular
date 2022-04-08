@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { APICallService } from '../apicall.service';
 import { IRank } from '../interfaces/IRank';
 import { NgForm } from '@angular/forms';
 import { RankService } from '../MockDataTesting/rank.service';
 import { FormsModule } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 
 @Component
 ({
@@ -14,12 +15,15 @@ import { FormsModule } from '@angular/forms';
 export class RankComponent implements OnInit 
 {
   rank: any = [];
-
-  constructor(private api: APICallService) { }
+  userName = "Unknown";
+ 
+  constructor(private api: APICallService, private route: ActivatedRoute) { }
 
   ngOnInit(): void 
   {
-    this.api.getGoal().subscribe
+    this.userName = this.route.snapshot.params['userName'];
+
+    this.api.getGoal(this.userName).subscribe
     (
       (response) => { this.rank = response; }
     )

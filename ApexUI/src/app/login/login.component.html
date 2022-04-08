@@ -2,7 +2,9 @@
 <div class="login-form">
     <form #loginForm="ngForm" (ngSubmit)="getLogin(loginForm)">
         <h3>Please Enter Your User Name</h3>
-        <div class="form-check" *ngFor="let login of login">
+        <div>
+            <label for="login">Give Name:</label>
+            <input login="login" id="login" ngModel />
             <input
             class="form-check-input"
             type="submit"
@@ -11,6 +13,10 @@
             ngModel
             />
         </div>
+        <!-- <div class="form-check" *ngFor="let login of login"> -->
 
+        <!-- </div> -->
+        
     </form>
 </div>
+<!-- <a [routerLink]="['/rank',login.userName]">Goals</a> -->
