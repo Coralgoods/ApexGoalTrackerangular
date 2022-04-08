@@ -10,6 +10,8 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { UserComponent } from './user/user.component';
 import { RankComponent } from './rank/rank.component';
+import { FormsModule, NgForm } from '@angular/forms';
+
 
 
 const routes: Routes =
@@ -33,6 +35,7 @@ const routes: Routes =
     HttpClientModule,
     AppRoutingModule,
     RouterModule.forRoot(routes),
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

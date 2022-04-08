@@ -1,1 +1,16 @@
-<p>login works!</p>
+<h1>Apex Login</h1>
+<div class="login-form">
+    <form #loginForm="ngForm" (ngSubmit)="getLogin(loginForm)">
+        <h3>Please Enter Your User Name</h3>
+        <div class="form-check" *ngFor="let login of login">
+            <input
+            class="form-check-input"
+            type="submit"
+            value="{{login.userName}}"
+            name="userName"
+            ngModel
+            />
+        </div>
+
+    </form>
+</div>
