@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { IUser } from './interfaces/IUser';
-import { IRank } from './interfaces/irank';
+import { IRank } from './interfaces/IRank';
 
 
 @Injectable({

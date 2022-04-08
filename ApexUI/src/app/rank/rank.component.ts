@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { APICallService } from '../apicall.service';
-import { IRank } from '../interfaces/irank';
+import { IRank } from '../interfaces/IRank';
 import { NgForm } from '@angular/forms';
+import { RankService } from '../MockDataTesting/rank.service';
+import { FormsModule } from '@angular/forms';
 
 @Component
 ({
@@ -12,8 +14,7 @@ import { NgForm } from '@angular/forms';
 export class RankComponent implements OnInit 
 {
   rank: any = [];
-// displays current rank
-//allows user to edit goals, or delete them
+
   constructor(private api: APICallService) { }
 
   ngOnInit(): void 
@@ -23,6 +24,17 @@ export class RankComponent implements OnInit
       (response) => { this.rank = response; }
     )
   }
+
+  //test data
+  // goalDetails: IRank[] | undefined
+
+  // constructor(private api: RankService){}
+
+  // ngOnInit(): void 
+  // {
+  //   this.goalDetails = this.api.listAllGoals()
+  // }
+  //end test data
 
   createGoal(form: NgForm) 
   {
@@ -34,6 +46,14 @@ export class RankComponent implements OnInit
     }
     this.api.addGoal(rank)
   }
+
+  deleteGoal(id: number) 
+  {
+    this.api.deleteGoal(id);
+    window.location.reload();
+  }
+  
+  //need to test
 
   // updateGoal(form: NgForm, id: number) 
   // {
@@ -47,9 +67,5 @@ export class RankComponent implements OnInit
   //   window.location.reload();
   // }
 
-  deleteGoal(id: number) 
-  {
-    this.api.deleteGoal(id);
-    window.location.reload();
-  }
+
 }

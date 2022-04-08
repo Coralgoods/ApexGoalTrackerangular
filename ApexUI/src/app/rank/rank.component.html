@@ -1,1 +1,27 @@
-<p>rank works!</p>
+<h1>Rank Goals</h1>
+<div *ngFor="let goal of rank">
+    <span>
+        {{goal.userName}}:
+        <li>Rank Wanted: {{goal.rankName}}</li>
+        <li>Score Wanted: {{goal.rankScore}}</li>
+
+    </span>
+    <br>        
+    <div>
+        <button (click)="deleteGoal(rank.id)">Delete</button>
+    </div>
+</div>
+
+<div>
+    <form #goalForm="ngForm" (ngSubmit)="createGoal(goalForm)">
+      <label for="userName">Give Name:</label>
+      <input userName="userName" id="userName" ngModel />
+      <label for="rankName">Rank Goal:</label>
+      <input rankName="rankName" id="rankName" ngModel />
+      <label for="rankScore">Score Goal:</label>
+      <input rankScore="rankScore" id="rankScore" ngModel />
+      <div>
+        <button>Add Goal</button>
+      </div>
+    </form>
+  </div>
