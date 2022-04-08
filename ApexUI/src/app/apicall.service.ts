@@ -19,9 +19,9 @@ export class APICallService {
     }
 
     //rank methods 
-    getGoal()
+    getGoal(userName:string)
     {
-      return this.http.get(this.apiRankUri);
+      return this.http.get(`${this.apiRankUri}/${userName}`);
     }
     updateGoal(rank: IRank, userName:string, goalId:number) 
     {
