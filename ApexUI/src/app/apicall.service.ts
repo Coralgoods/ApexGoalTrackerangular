@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { IUser } from './interfaces/IUser';
 import { IRank } from './interfaces/IRank';
+import { IUserStats } from './interfaces/IUserStats';
 
 
 
@@ -10,8 +11,10 @@ import { IRank } from './interfaces/IRank';
 })
 export class APICallService {
   private localHostNumber = 44381;
+  //private localHostNumber = 44397; //Eduardo's local host number
   private apiUri: string = `https://localhost:${this.localHostNumber}/user`
   private apiRankUri: string = `https://localhost:${this.localHostNumber}/usergoal`
+  private apiCurrentStats: string =`https://localhost:${this.localHostNumber}/CurrentStats`
 
   constructor(private http: HttpClient) {}
     getUser(){
@@ -36,5 +39,18 @@ export class APICallService {
       return this.http.delete(`${this.apiRankUri}/${id}`).subscribe();
     }
     //rank method end
+
+    //Current stats methods
+    getUserStats(ApexID:string)
+    {
+      //return this.http.get(this.apiCurrentStats, User).subscribe(); 
+        return this.http.get(`${this.apiCurrentStats}/${ApexID}`).subscribe(); 
+    }
+
+    postUserStat(User: IUserStats)
+    {
+      return this.http.post(this.apiCurrentStats, User).subscribe(); 
+    }
+
 }
 
