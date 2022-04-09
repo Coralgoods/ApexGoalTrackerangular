@@ -1,0 +1,49 @@
+<h1>Create New Account</h1>
+<div>
+
+    <form name="createForm" #createForm="ngForm" (ngSubmit)="createUser(createForm)">
+        <div class="form-group">
+            <label for="userName">username:</label>
+            <input 
+              type="text"
+              class="form-control"
+              id="userName"
+              placeholder="Enter username"
+              name="userName"
+              ngModel
+              required
+            />
+        </div>
+        <div class="form-group">
+            <label for="password">password:</label>
+            <input 
+              type="text"
+              class="form-control"
+              id="password"
+              placeholder="Enter password"
+              name="password"
+              ngModel
+              required
+            />
+        </div>
+        <div class="form-group">
+            <label for="ApexID">ApexID:</label>
+            <input 
+              type="text"
+              class="form-control"
+              id="ApexID"
+              placeholder="Enter ApexID"
+              name="ApexID"
+              ngModel
+              required
+            />
+        </div>
+        
+        
+        <div>
+            <button
+            type="submit"
+            class="btn btn-primary">Create User</button>
+          </div>
+    </form>
+</div>

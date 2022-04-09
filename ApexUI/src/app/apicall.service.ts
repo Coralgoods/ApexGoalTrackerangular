@@ -10,8 +10,10 @@ import { IUserStats } from './interfaces/IUserStats';
   providedIn: 'root'
 })
 export class APICallService {
+
   private localHostNumber = 44381;
   //private localHostNumber = 44397; //Eduardo's local host number
+
   private apiUri: string = `https://localhost:${this.localHostNumber}/user`
   private apiRankUri: string = `https://localhost:${this.localHostNumber}/usergoal`
   private apiCurrentStats: string =`https://localhost:${this.localHostNumber}/CurrentStats`
@@ -19,6 +21,9 @@ export class APICallService {
   constructor(private http: HttpClient) {}
     getUser(){
       return this.http.get(this.apiUri)
+    }
+    createUser(user: IUser){
+      return this.http.post(this.apiUri, user).subscribe()
     }
 
     //rank methods 
