@@ -10,6 +10,9 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { UserComponent } from './user/user.component';
 import { RankComponent } from './rank/rank.component';
+import { CreateComponent } from './create/create.component';
+import { CoreModule } from './core/core.module';
+
 
 
 
@@ -21,6 +24,7 @@ const routes: Routes =
     { path: 'rank', component: RankComponent },
     { path: 'rank/:userName', component: RankComponent },
     { path: 'user/:userName', component: UserComponent },
+    { path: 'create', component: CreateComponent},
   ]
   
 @NgModule({
@@ -28,7 +32,8 @@ const routes: Routes =
     AppComponent,
     LoginComponent,
     UserComponent,
-    RankComponent
+    RankComponent,
+    CreateComponent
     
   ],
   imports: [
@@ -36,7 +41,9 @@ const routes: Routes =
     HttpClientModule,
     AppRoutingModule,
     RouterModule.forRoot(routes),
-    FormsModule
+    FormsModule,
+    CoreModule,
+    
 
   ],
   providers: [],

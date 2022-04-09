@@ -9,13 +9,16 @@ import { IRank } from './interfaces/IRank';
   providedIn: 'root'
 })
 export class APICallService {
-  private localHostNumber = 44381;
+  private localHostNumber = 44397;
   private apiUri: string = `https://localhost:${this.localHostNumber}/user`
   private apiRankUri: string = `https://localhost:${this.localHostNumber}/usergoal`
 
   constructor(private http: HttpClient) {}
     getUser(){
       return this.http.get(this.apiUri)
+    }
+    createUser(user: IUser){
+      return this.http.post(this.apiUri, user).subscribe()
     }
 
     //rank methods 

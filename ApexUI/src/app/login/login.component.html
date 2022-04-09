@@ -1,15 +1,27 @@
-<h1>Apex Login</h1>
+<h1>Apex Tracker Login</h1>
 <div class="login-form">
     <form #loginForm="ngForm" (ngSubmit)="getLogin(loginForm)">
-        <h3>Please Enter Your User Name</h3>
+        
         <div>
-            <label for="login">Give Name:</label>
+            <label for="login">user name:</label>
             <input login="login" id="login" ngModel />
             <input
             class="form-check-input"
             type="submit"
             value="{{login.userName}}"
             name="userName"
+            ngModel
+            />
+        </div>
+        
+        <div>
+            <label for="login">password:</label>
+            <input login="login" id="login" ngModel />
+            <input
+            class="form-check-input"
+            type="submit"
+            value="{{login.password}}"
+            name="password"
             ngModel
             />
         </div>
