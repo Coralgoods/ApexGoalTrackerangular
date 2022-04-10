@@ -1,5 +1,5 @@
 export interface IUser{
-    userName: string;
-    password: string;
+    UserName: string;
+    Password: string;
     ApexID: string;
 }

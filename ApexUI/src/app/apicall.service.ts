@@ -11,8 +11,8 @@ import { IUserStats } from './interfaces/IUserStats';
 })
 export class APICallService {
 
-  private localHostNumber = 44381;
-  //private localHostNumber = 44397; //Eduardo's local host number
+  // private localHostNumber = 44381;
+  private localHostNumber = 44397; //Eduardo's local host number
 
   private apiUri: string = `https://localhost:${this.localHostNumber}/user`
   private apiRankUri: string = `https://localhost:${this.localHostNumber}/usergoal`

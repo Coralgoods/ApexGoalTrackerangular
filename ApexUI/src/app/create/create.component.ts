@@ -27,8 +27,8 @@ export class CreateComponent implements OnInit {
     console.log(form.form.value)
     let user: IUser =
     {
-      userName: form.form.value.userName,
-      password: form.form.value.password,
+      UserName: form.form.value.UserName,
+      Password: form.form.value.Password,
       ApexID: form.form.value.ApexID
     }
     console.log(user);

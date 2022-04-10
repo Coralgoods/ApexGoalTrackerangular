@@ -3,25 +3,25 @@
 
     <form name="createForm" #createForm="ngForm" (ngSubmit)="createUser(createForm)">
         <div class="form-group">
-            <label for="userName">username:</label>
+            <label for="UserName">username:</label>
             <input 
               type="text"
               class="form-control"
-              id="userName"
+              id="UserName"
               placeholder="Enter username"
-              name="userName"
+              name="UserName"
               ngModel
               required
             />
         </div>
         <div class="form-group">
-            <label for="password">password:</label>
+            <label for="Password">password:</label>
             <input 
               type="text"
               class="form-control"
-              id="password"
+              id="Password"
               placeholder="Enter password"
-              name="password"
+              name="Password"
               ngModel
               required
             />
