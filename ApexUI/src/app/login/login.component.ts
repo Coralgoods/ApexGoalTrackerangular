@@ -2,7 +2,11 @@ import { Component,Input, OnInit } from '@angular/core';
 import { APICallService } from '../apicall.service';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import { Injectable } from '@angular/core';
 
+@Injectable({
+  providedIn: 'root'
+})
 
 @Component({
   selector: 'app-login',

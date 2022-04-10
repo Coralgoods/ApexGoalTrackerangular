@@ -22,6 +22,7 @@ const routes: Routes =
     { path: '', redirectTo: 'login', pathMatch: 'full' },
     { path: 'login', component: LoginComponent },
     { path: 'rank', component: RankComponent },
+    { path: 'user', component: UserComponent },
     { path: 'rank/:userName', component: RankComponent },
     { path: 'user/:userName', component: UserComponent },
     { path: 'create', component: CreateComponent},
