@@ -16,7 +16,7 @@ export class APICallService {
 
   private apiUri: string = `https://localhost:${this.localHostNumber}/user`
   private apiRankUri: string = `https://localhost:${this.localHostNumber}/usergoal`
-  private apiCurrentStats: string =`https://localhost:${this.localHostNumber}/CurrentStats`
+  private apiCurrentStats: string =`https://localhost:${this.localHostNumber}/api//CurrentStats`
 
   constructor(private http: HttpClient) {}
     getUser(){
@@ -49,7 +49,8 @@ export class APICallService {
     getUserStats(ApexID:string)
     {
       //return this.http.get(this.apiCurrentStats, User).subscribe(); 
-        return this.http.get(`${this.apiCurrentStats}/${ApexID}`).subscribe(); 
+      console.log(ApexID)  
+      return this.http.get(`${this.apiCurrentStats}/${ApexID}`); 
     }
 
     postUserStat(User: IUserStats)
