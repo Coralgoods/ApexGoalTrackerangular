@@ -7,5 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ApexUI';
-  // userName = 'kevin';
+  // passedUserName: string = ''
+  // receiveuserName($event: any){
+  //   this.passedUserName=$event
+  // }
+ 
 }

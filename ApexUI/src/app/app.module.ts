@@ -48,7 +48,7 @@ const routes: Routes =
     
 
   ],
-  providers: [APICallService ],
+  providers: [LoginComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

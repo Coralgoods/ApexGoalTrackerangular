@@ -1,4 +1,4 @@
-import { Component,Input, OnInit } from '@angular/core';
+import { Component,Input, OnInit, Output,EventEmitter } from '@angular/core';
 import { APICallService } from '../apicall.service';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
@@ -22,6 +22,9 @@ export class LoginComponent implements OnInit {
   // should have create user if someone doesnt have one
   constructor(private api: APICallService, private router: Router) { }
 
+ _username: string = "test";
+//@Output() event = new EventEmitter<string>()
+
   ngOnInit(): void {
     // this.repo.getUser().subscribe((response) => {
     //   this.login = response;
@@ -32,10 +35,16 @@ export class LoginComponent implements OnInit {
   
   let userName = form.form.value.UserName;
   let password = form.form.value.Password;
-   
+
+  //this._username = userName;  
+
     this.api.Login(userName,password).subscribe((response)=> {
       if (response == true){
+        this.api.setUserName(userName)
+        console.log("login -UserName")
+        console.log(userName)  
         this.router.navigate(['/user'])
+        //this.event.emit(this._username)
       }
       else{
         (<HTMLInputElement>document.getElementById('PasswordTextBox')).value = "";
@@ -43,4 +52,6 @@ export class LoginComponent implements OnInit {
       }
    }); 
   }
+
 }
+

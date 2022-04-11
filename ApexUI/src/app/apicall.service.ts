@@ -22,8 +22,11 @@ export class APICallService {
 
   TestUserStats: any = []
 
+  passedUserName: string = ' '
+
 
   constructor(private http: HttpClient) {}
+ 
     getUser(){
       return this.http.get(this.apiUri)
     }
@@ -57,11 +60,12 @@ export class APICallService {
 
     //Current stats methods
     getUserStats(ApexID:string): Observable<any>
-    {
-      //return this.http.get(this.apiCurrentStats, User).subscribe(); 
+    { 
+      console.log("apicall - passedApexID") 
       console.log(ApexID)  
-      console.log("Function call")
-      //this.TestUserStats  = this.http.get(`${this.apiCurrentStats}/${ApexID}`);
+      console.log("apicall Get - passedUName") 
+      console.log(this.passedUserName)
+      
       console.log(`${this.apiCurrentStats}/${ApexID}`)
       return this.http.get(`${this.apiCurrentStats}/${ApexID}`); 
       
@@ -70,6 +74,29 @@ export class APICallService {
     postUserStat(User: IUserStats)
     {
       return this.http.post(this.apiCurrentStats, User).subscribe(); 
+    }
+
+    //Test Don't need 
+    receiveuserName($event: any){
+    this.passedUserName=$event
+    console.log(this.passedUserName)
+}
+    //Test for send and get message
+    //message:string | undefined
+    
+    setUserName(data:string){
+      console.log("appicall - setID")
+      this.passedUserName=data
+      console.log(this.passedUserName)
+    }
+    getUserName(){
+      if(this.passedUserName = ' '){
+        return 'error getUserName'
+      }
+      else{
+        return this.passedUserName
+      }
+ 
     }
 
 
