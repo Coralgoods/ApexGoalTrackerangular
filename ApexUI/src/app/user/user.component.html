@@ -1,14 +1,19 @@
 <p>user works!</p>
 
-<div>
-    <div *ngFor="let UserStat of UserStats ">
-        <h3>{{UserStat.Id}}</h3>
-        <!-- <h5>{{UserStat.UserID}}</h5>
-        <p>{{UserStat.ApexID}}</p>
-        <p>{{UserStat.UserName}}</p>
-        <p>{{UserStat.Date}}</p>
-        <p>{{UserStat.RankSore}}</p>
-        <p>{{UserStat.RankName}}</p>
-        <p>{{UserStat.Banner}}</p> -->
-    </div>
-</div>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>User ID</th>
+        <th>ApedID</th>
+        <th>User Name</th>
+        <th>Date</th>
+        <th>Rank Score</th>
+        <th>Rank Name</th>
+        <th>Banner</th>
+    </tr>
+    <tr *ngFor="let stats of UserStats">
+        <td>{{stats.id}}</td>
+
+    </tr>
+</table>
+

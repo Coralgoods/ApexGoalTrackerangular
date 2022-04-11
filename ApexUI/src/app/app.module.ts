@@ -12,6 +12,7 @@ import { UserComponent } from './user/user.component';
 import { RankComponent } from './rank/rank.component';
 import { CreateComponent } from './create/create.component';
 import { CoreModule } from './core/core.module';
+import { APICallService } from './apicall.service';
 
 
 
@@ -47,7 +48,7 @@ const routes: Routes =
     
 
   ],
-  providers: [],
+  providers: [APICallService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
