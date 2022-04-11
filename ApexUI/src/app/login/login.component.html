@@ -1,34 +1,14 @@
 <h1>Apex Tracker Login</h1>
 <div class="login-form">
     <form #loginForm="ngForm" (ngSubmit)="getLogin(loginForm)">
-        
-        <div>
-            <label for="login">user name:</label>
-            <input login="login" id="login" ngModel />
-            <input
-            class="form-check-input"
-            type="submit"
-            value="{{login.userName}}"
-            name="userName"
-            ngModel
-            />
-        </div>
-        
-        <div>
-            <label for="login">password:</label>
-            <input login="login" id="login" ngModel />
-            <input
-            class="form-check-input"
-            type="submit"
-            value="{{login.password}}"
-            name="password"
-            ngModel
-            />
-        </div>
-        <!-- <div class="form-check" *ngFor="let login of login"> -->
+        <label for="UserName">username:</label>
+        <input type="text" class="form-control" id="UserNameTextBox" placeholder="Enter username" name="UserName" ngModel required/>
+        <br>
 
-        <!-- </div> -->
-        
-    </form>
+        <label for="Password">password:</label>
+        <input type="text" class="form-control" id="PasswordTextBox" placeholder="Enter password" name="Password" ngModel required/>
+        <br>
+
+        <input type="submit">
+    </form>   
 </div>
-<!-- <a [routerLink]="['/rank',login.userName]">Goals</a> -->
