@@ -36,11 +36,11 @@ UserStats!:IUserStatsRecs[];
       //   this.UserStats = data; 
       // }
 
-      (res: any[]) => this.UserStats = res
+      (res: any[]) => this.UserStats1 = res
 
     )
     console.log("On Init flag")
-    //console.log(this.UserStats)
+    console.log(this.UserStats1)
     //console.log("Check indicator")
   }
 
