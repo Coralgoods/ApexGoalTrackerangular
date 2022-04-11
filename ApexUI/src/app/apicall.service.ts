@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpParams } from '@angular/common/http';
 import { IUser } from './interfaces/IUser';
 import { IRank } from './interfaces/IRank';
 import { IUserStats } from './interfaces/IUserStats';
+import { Observable, observable } from 'rxjs';
 
 
 
@@ -17,6 +18,10 @@ export class APICallService {
   private apiUri: string = `https://localhost:${this.localHostNumber}/user`
   private apiRankUri: string = `https://localhost:${this.localHostNumber}/usergoal`
   private apiCurrentStats: string =`https://localhost:${this.localHostNumber}/api/CurrentStats`
+
+
+  TestUserStats: any = []
+
 
   constructor(private http: HttpClient) {}
     getUser(){
@@ -51,11 +56,15 @@ export class APICallService {
     //rank method end
 
     //Current stats methods
-    getUserStats(ApexID:string)
+    getUserStats(ApexID:string): Observable<any>
     {
       //return this.http.get(this.apiCurrentStats, User).subscribe(); 
       console.log(ApexID)  
+      console.log("Function call")
+      //this.TestUserStats  = this.http.get(`${this.apiCurrentStats}/${ApexID}`);
+      console.log(`${this.apiCurrentStats}/${ApexID}`)
       return this.http.get(`${this.apiCurrentStats}/${ApexID}`); 
+      
     }
 
     postUserStat(User: IUserStats)
