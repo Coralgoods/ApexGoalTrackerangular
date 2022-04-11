@@ -1,5 +1,3 @@
-<p>user works!</p>
-
 
 <table>
     <tr>
@@ -12,8 +10,15 @@
         <th>Rank Name</th>
         <th>Banner</th>
     </tr>
-    <tr *ngFor="let stats of UserStats1">
+    <tr *ngFor="let stats of UserStats1.allCurrentStats">
         <td>{{stats.id}}</td>
+        <td>{{stats.userID}}</td>
+        <td>{{stats.apexID}}</td>
+        <td>{{stats.userName}}</td>
+        <td>{{stats.date}}</td>
+        <td>{{stats.rankSore}}</td>
+        <td>{{stats.rankName}}</td>
+        <td>{{stats.banner}}</td>
 
     </tr>
 </table>
