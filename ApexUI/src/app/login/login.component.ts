@@ -20,19 +20,27 @@ export class LoginComponent implements OnInit {
   update: any;
   // should have login feature with username and pass
   // should have create user if someone doesnt have one
-  constructor(private repo: APICallService, private router: Router) { }
+  constructor(private api: APICallService, private router: Router) { }
 
   ngOnInit(): void {
-    this.repo.getUser().subscribe((response) => {
-      this.login = response;
-    });
+    // this.repo.getUser().subscribe((response) => {
+    //   this.login = response;
+    // });
   }
 
   getLogin(form: NgForm){
-   let login = form.form.value.login;
-   this.login = login;
-  //this.router.navigate([`login`, form.form.value.user]);
-    
+  
+  let userName = form.form.value.UserName;
+  let password = form.form.value.Password;
+   
+    this.api.Login(userName,password).subscribe((response)=> {
+      if (response == true){
+        this.router.navigate(['/user'])
+      }
+      else{
+        (<HTMLInputElement>document.getElementById('PasswordTextBox')).value = "";
+        alert('Incorrect Password!');
+      }
+   }); 
   }
-
 }
