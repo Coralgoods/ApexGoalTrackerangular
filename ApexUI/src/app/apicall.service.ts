@@ -68,7 +68,6 @@ export class APICallService {
       
       console.log(`${this.apiCurrentStats}/${ApexID}`)
       return this.http.get(`${this.apiCurrentStats}/${ApexID}`); 
-      
     }
 
     postUserStat(User: IUserStats)

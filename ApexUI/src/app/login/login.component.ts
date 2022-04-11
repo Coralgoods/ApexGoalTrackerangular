@@ -40,10 +40,10 @@ export class LoginComponent implements OnInit {
 
     this.api.Login(userName,password).subscribe((response)=> {
       if (response == true){
-        this.api.setUserName(userName)
+        //this.api.setUserName(userName)
         console.log("login -UserName")
         console.log(userName)  
-        this.router.navigate(['/user'])
+        this.router.navigate(['/user',userName])
         //this.event.emit(this._username)
       }
       else{
