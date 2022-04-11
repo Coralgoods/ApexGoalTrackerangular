@@ -19,15 +19,22 @@ export class APICallService {
   private apiRankUri: string = `https://localhost:${this.localHostNumber}/usergoal`
   private apiCurrentStats: string =`https://localhost:${this.localHostNumber}/api/CurrentStats`
 
+
   TestUserStats: any = []
+
 
   constructor(private http: HttpClient) {}
     getUser(){
       return this.http.get(this.apiUri)
     }
+    Login(userName: string, password: string){
+      let loginUri = this.apiUri + '/' + userName + '/' + password;
+      return this.http.get(loginUri)
+    }
     createUser(user: IUser){
       return this.http.post(this.apiUri, user).subscribe()
     }
+
 
     //rank methods 
     getGoal(userName:string)
@@ -64,6 +71,7 @@ export class APICallService {
     {
       return this.http.post(this.apiCurrentStats, User).subscribe(); 
     }
+
 
 }
 
