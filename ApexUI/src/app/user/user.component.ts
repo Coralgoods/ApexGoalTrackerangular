@@ -17,25 +17,22 @@ export class UserComponent implements OnInit {
 // should be able to delete user account
 
 UserStats1: any = []
-
-
-ApexID = "UnreadyEddie";
+//ApexID = "UnreadyEddie";
 userName:string = '';
 
 constructor(private api: APICallService, private route: ActivatedRoute) { }
 
 UserStats!:IUserStatsRecs[]; 
 
-//UserStats!:IUserStatsRecsHeader[];
   ngOnInit(): void {
-    //this.ApexID = this.route.snapshot.params['ApexID'];
+    this.userName = this.route.snapshot.params['userName'];
 
-    this.userName = this.api.getUserName()
+    //this.userName = this.api.getUserName()
     console.log("User comp - Username below")
     console.log(this.userName)
 
 
-    this.api.getUserStats(this.ApexID).subscribe 
+    this.api.getUserStats(this.userName).subscribe 
     (
       //(response) => { this.UserStats = response; }
       
@@ -43,13 +40,10 @@ UserStats!:IUserStatsRecs[];
       // {
       //   this.UserStats = data; 
       // }
-
       (res: any[]) => this.UserStats1 = res
     )
-
-
-    console.log("User comp - API pull")
-    console.log(this.UserStats1)
+    //console.log("User comp - API pull")
+    console.log(this.userName)
     //console.log("Check indicator")
   }
 
