@@ -44,7 +44,9 @@ export class RankComponent implements OnInit
   {
     let rank: IRank =
     {
-      userName: form.form.value.userName,
+      UserID:   form.form.value.UserID,
+      UserName: form.form.value.UserName,
+      ApexID:   form.form.value.ApexID,
       rankScore: form.form.value.rankScore,
       rankName: form.form.value.rankName
     }
