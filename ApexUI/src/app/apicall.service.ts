@@ -4,6 +4,7 @@ import { IUser } from './interfaces/IUser';
 import { IRank } from './interfaces/IRank';
 import { IUserStats } from './interfaces/IUserStats';
 import { Observable, observable } from 'rxjs';
+import { IUserInfo } from './interfaces/IUserInfo';
 
 
 
@@ -27,17 +28,19 @@ export class APICallService {
 
   constructor(private http: HttpClient) {}
  
-    getUser(){
-      return this.http.get(this.apiUri)
+    getUser(userName: string){
+      let loginUri = this.apiUri + '/' + userName + '/'; 
+      console.log(loginUri) 
+      return this.http.get(loginUri)
     }
     Login(userName: string, password: string){
       let loginUri = this.apiUri + '/' + userName + '/' + password;
+      console.log(loginUri)
       return this.http.get(loginUri)
     }
     createUser(user: IUser){
       return this.http.post(this.apiUri, user).subscribe()
     }
-
 
     //rank methods 
     getGoal(userName:string)
@@ -70,7 +73,7 @@ export class APICallService {
       return this.http.get(`${this.apiCurrentStats}/${ApexID}`); 
     }
 
-    postUserStat(User: IUserStats)
+    postUserStat(User: IUserInfo)
     {
       return this.http.post(this.apiCurrentStats, User).subscribe(); 
     }
@@ -83,20 +86,20 @@ export class APICallService {
     //Test for send and get message
     //message:string | undefined
     
-    setUserName(data:string){
-      console.log("appicall - setID")
-      this.passedUserName=data
-      console.log(this.passedUserName)
-    }
-    getUserName(){
-      if(this.passedUserName = ' '){
-        return 'error getUserName'
-      }
-      else{
-        return this.passedUserName
-      }
+    // setUserName(data:string){
+    //   console.log("appicall - setID")
+    //   this.passedUserName=data
+    //   console.log(this.passedUserName)
+    // }
+    // getUserName(){
+    //   if(this.passedUserName = ' '){
+    //     return 'error getUserName'
+    //   }
+    //   else{
+    //     return this.passedUserName
+    //   }
  
-    }
+    // }
 
 
 }

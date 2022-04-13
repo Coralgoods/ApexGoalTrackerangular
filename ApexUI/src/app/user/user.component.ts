@@ -44,6 +44,7 @@ UserStats!:IUserStatsRecs[];
     )
     //console.log("User comp - API pull")
     console.log(this.userName)
+    console.log(this.UserStats1)
     //console.log("Check indicator")
   }
 

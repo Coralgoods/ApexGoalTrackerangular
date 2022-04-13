@@ -5,14 +5,14 @@ import { IRank } from '../interfaces/IRank';
 })
 export class RankService {
 
-  goals: IRank[] = 
-  [
-    {userName:"kevin", rankName:"bronze",rankScore:450},
-    {userName:"kevin", rankName:"silver",rankScore:1500}
-  ]
+  // goals: IRank[] = 
+  // [
+  //   {userName:"kevin", rankName:"bronze",rankScore:450},
+  //   {userName:"kevin", rankName:"silver",rankScore:1500}
+  // ]
   constructor() { }
-  listAllGoals()
-  {
-    return this.goals
-  }
+  // listAllGoals()
+  // {
+  //   return this.goals
+  // }
 }
