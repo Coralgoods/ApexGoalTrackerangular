@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { Injectable } from '@angular/core';
 import { IUserInfo } from '../interfaces/IUserInfo';
-import { IUserStats } from '../interfaces/IUserStats';
+
 
 @Injectable({
   providedIn: 'root'
@@ -24,25 +24,14 @@ export class LoginComponent implements OnInit {
   // should have create user if someone doesnt have one
   constructor(private api: APICallService, private router: Router) { }
 
- _username: string = "test";
-//@Output() event = new EventEmitter<string>()
-
-//Userinfo: any = []; 
-//Userinfo: any; 
-
-
-//ApexID = "UnreadyEddie";
 userName:string = '';
 Userinfo: any;  
 userID: number = 0;  
 apexID: string = ''; 
-//test:string = '';
 
 
   ngOnInit(): void {
-    // this.repo.getUser().subscribe((response) => {
-    //   this.login = response;
-    // });
+
   }
 
   getLogin(form: NgForm){
@@ -50,25 +39,17 @@ apexID: string = '';
   let userName = form.form.value.UserName;
   let password = form.form.value.Password;
 
-//var Userinfo;
-//var Userinfo: Array<any>;  
-  //this._username = userName;  
 
     this.api.Login(userName,password).subscribe((response)=> {
       if (response == true){
-        console.log("login -UserName")
-        console.log(userName)  
-        
+         
         this.api.getUser(userName).subscribe(
           (response: any) => {this.Userinfo = response;}
         ) 
         this.userName = this.Userinfo.userName; 
         this.userID  = this.Userinfo.userID; 
         this.apexID  = this.Userinfo.apexID; 
-        console.log("TEst user Name")
-        console.log(this.userName) 
-        console.log(this.userID) 
-        console.log(this.apexID) 
+        //console.log(this.apexID) 
 
          let useraccount: IUserInfo =
          {
@@ -76,12 +57,12 @@ apexID: string = '';
           UserName: this.userName,
           ApexID: this.apexID, 
          }
-          //post works
+         
+         //post works | Need more logic
          //this.api.postUserStat(useraccount) 
 
-
         this.router.navigate(['/user',userName])
-        //this.event.emit(this._username)
+
       }
       else{
         (<HTMLInputElement>document.getElementById('PasswordTextBox')).value = "";
