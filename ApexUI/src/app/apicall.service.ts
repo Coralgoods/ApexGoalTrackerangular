@@ -17,14 +17,13 @@ export class APICallService {
   private localHostNumber = 44397; //Eduardo's local host number
 
   private apiUri: string = `https://localhost:${this.localHostNumber}/user`
-  private apiRankUri: string = `https://localhost:${this.localHostNumber}/usergoal`
+  private apiRankUri: string = `https://localhost:${this.localHostNumber}/api/usergoal`
   private apiCurrentStats: string =`https://localhost:${this.localHostNumber}/api/CurrentStats`
 
 
   TestUserStats: any = []
 
   passedUserName: string = ' '
-
 
   constructor(private http: HttpClient) {}
  
