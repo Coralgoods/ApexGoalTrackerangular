@@ -1,8 +1,9 @@
 export interface IRank 
 {
-    UserID: number,
-    UserName:string,
-    ApexID:string,
+    //goalID: number,
+    userID: number,
+    apexID:string,
+    userName:string,
     rankScore:number,
     rankName:string
 }

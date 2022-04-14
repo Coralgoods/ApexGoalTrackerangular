@@ -14,12 +14,10 @@
 
 <div>
     <form #goalForm="ngForm" (ngSubmit)="createGoal(goalForm)">
-      <label for="userName">Give Name:</label>
-      <input userName="userName" id="userName" ngModel />
-      <label for="rankName">Rank Goal:</label>
-      <input rankName="rankName" id="rankName" ngModel />
       <label for="rankScore">Score Goal:</label>
       <input rankScore="rankScore" id="rankScore" ngModel />
+      <label for="rankName">Rank Goal:</label>
+      <input rankName="rankName" id="rankName" ngModel />
       <div>
         <button>Add Goal</button>
       </div>
