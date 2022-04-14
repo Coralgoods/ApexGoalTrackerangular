@@ -1,5 +1,5 @@
 export interface IUserInfo{
-    UserID: number;
-    UserName: string;
-    ApexID: string;
+    userID: number;
+    userName: string;
+    apexID: string;
 }

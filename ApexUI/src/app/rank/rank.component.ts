@@ -14,7 +14,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class RankComponent implements OnInit 
 {
-  rank: any = [];
+  //rank: any = [];
+  rank: any; 
   userName = "Unknown";
   Userinfo: any;  
   userID: number = 0;  
@@ -28,7 +29,8 @@ export class RankComponent implements OnInit
 
     this.api.getGoal(this.userName).subscribe
     (
-      (response) => { this.rank = response; }
+      //(response: any) => { this.rank = response; }
+      (res) => {this.rank = res; console.log(res);console.log("Here")} 
     )
   }
 
@@ -43,10 +45,6 @@ export class RankComponent implements OnInit
 
     let rank: IRank =
     {
-      //goalID:   form.form.value.goalID,
-      //userID:   form.form.value.userID,
-      //userName: form.form.value.userName,
-      //apexID:   form.form.value.apexID,
       userID:   this.userID,
       apexID:   this.apexID,
       userName: this.userName,
