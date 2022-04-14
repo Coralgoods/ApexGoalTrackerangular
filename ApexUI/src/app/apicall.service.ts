@@ -63,12 +63,7 @@ export class APICallService {
 
     //Current stats methods
     getUserStats(ApexID:string): Observable<any>
-    { 
-      console.log("apicall - passedApexID") 
-      console.log(ApexID)  
-      console.log("apicall Get - passedUName") 
-      console.log(this.passedUserName)
-      
+    {    
       console.log(`${this.apiCurrentStats}/${ApexID}`)
       return this.http.get(`${this.apiCurrentStats}/${ApexID}`); 
     }
