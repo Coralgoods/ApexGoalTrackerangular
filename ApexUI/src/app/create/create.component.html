@@ -1,18 +1,30 @@
-<h1>Create New Account</h1>
-<div>
-    <form name="createForm" #createForm="ngForm" (ngSubmit)="createUser(createForm)">
-            <label for="UserName">username:</label>
-            <input type="text" class="form-control" id="UserName" placeholder="Enter username" name="UserName" ngModel required/>
-            <br>
+<div class="account-creation" style="top: 50%; position: absolute; left: 43%;">
 
-            <label for="Password">password:</label>
-            <input type="text" class="form-control" id="Password" placeholder="Enter password" name="Password" ngModel required/>
-            <br>
+    <h1>Create New Account</h1>
+    <!DOCTYPE html>
+    <html>
+    <head>
+    </head>
+    <body>
 
-            <label for="ApexID">ApexID:</label>
-            <input type="text" class="form-control" id="ApexID" placeholder="Enter ApexID" name="ApexID" ngModel required/>
-            <br>
+    <div>
+        
+        <form name="createForm" #createForm="ngForm" (ngSubmit)="createUser(createForm)" style="position: fixed;">
+                <label for="UserName">username:</label>
+                <input type="text" class="form-control" id="UserName" placeholder="Enter username" name="UserName" ngModel required/>
+                <br>
 
-            <button type="submit" class="btn btn-primary">Create User </button>
-    </form>
+                <label for="Password">password:</label>
+                <input type="text" class="form-control" id="Password" placeholder="Enter password" name="Password" ngModel required/>
+                <br>
+
+                <label for="ApexID">ApexID:</label>
+                <input type="text" class="form-control" id="ApexID" placeholder="Enter ApexID" name="ApexID" ngModel required/>
+                <br>
+
+                <button type="submit" class="btn btn-primary">Create User </button>
+        </form>
+    </div>
+    </body>
+    </html>
 </div>
