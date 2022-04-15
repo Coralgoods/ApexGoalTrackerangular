@@ -24,7 +24,7 @@
   </tr>
 </table>
 
-<div>
+<!-- <div>
     <form #goalForm="ngForm" (ngSubmit)="createGoal(goalForm)">
       <label for="rankScore">Score Goal:</label>
       <input rankScore="rankScore" id="rankScore" ngModel />
@@ -34,4 +34,19 @@
         <button>Add Goal</button>
       </div>
     </form>
-  </div>
+  </div> -->
+
+  <h1>Add your goal here!</h1>
+<div class="login-form">
+    <form #loginForm="ngForm" (ngSubmit)="createGoal(loginForm)">
+        <label for="rankScore">rankScore:</label>
+        <input type="number" class="form-control" id="rankScoreTextBox" placeholder="Enter rank score" name="rankScore" ngModel required/>
+        <br>
+
+        <label for="rankName">rankName</label>
+        <input type="text" class="form-control" id="rankNameTextBox" placeholder="Enter rank name" name="rankName" ngModel required/>
+        <br>
+
+        <input type="submit">
+    </form>   
+</div>
