@@ -17,14 +17,13 @@ export class APICallService {
   private localHostNumber = 44397; //Eduardo's local host number
 
   private apiUri: string = `https://localhost:${this.localHostNumber}/user`
-  private apiRankUri: string = `https://localhost:${this.localHostNumber}/usergoal`
+  private apiRankUri: string = `https://localhost:${this.localHostNumber}/api/usergoal`
   private apiCurrentStats: string =`https://localhost:${this.localHostNumber}/api/CurrentStats`
 
 
   TestUserStats: any = []
 
   passedUserName: string = ' '
-
 
   constructor(private http: HttpClient) {}
  
@@ -45,6 +44,8 @@ export class APICallService {
     //rank methods 
     getGoal(userName:string)
     {
+      console.log("Get goal URL")
+      console.log(this.http.get(`${this.apiRankUri}/${userName}`))
       return this.http.get(`${this.apiRankUri}/${userName}`);
     }
     updateGoal(rank: IRank, userName:string, goalId:number) 
@@ -68,9 +69,13 @@ export class APICallService {
       return this.http.get(`${this.apiCurrentStats}/${ApexID}`); 
     }
 
-    postUserStat(User: IUserInfo)
+    //postUserStat(User: IUserInfo)
+    postUserStat(User: any)
     {
-      return this.http.post(this.apiCurrentStats, User).subscribe(); 
+      console.log(this.http.post(this.apiCurrentStats, User))
+      console.log(User)
+      return this.http.post(this.apiCurrentStats, User); 
+      
     }
 
     //Test Don't need 

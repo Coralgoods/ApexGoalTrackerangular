@@ -14,8 +14,12 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class RankComponent implements OnInit 
 {
-  rank: any = [];
+  //rank: any = [];
+  rank: any; 
   userName = "Unknown";
+  Userinfo: any;  
+  userID: number = 0;  
+  apexID: string = ''; 
  
   constructor(private api: APICallService, private route: ActivatedRoute) { }
 
@@ -25,32 +29,30 @@ export class RankComponent implements OnInit
 
     this.api.getGoal(this.userName).subscribe
     (
-      (response) => { this.rank = response; }
+      //(response: any) => { this.rank = response; }
+      (res) => {this.rank = res; console.log(res);console.log("Here")} 
     )
   }
 
-  //test data
-  // goalDetails: IRank[] | undefined
-
-  // constructor(private api: RankService){}
-
-  // ngOnInit(): void 
-  // {
-  //   this.goalDetails = this.api.listAllGoals()
-  // }
-  //end test data
-
   createGoal(form: NgForm) 
   {
+
+    this.api.getUser(this.userName).subscribe(
+      (response: any) => {this.Userinfo = response;}
+    ) 
+    this.userID  = this.Userinfo.userID; 
+    this.apexID  = this.Userinfo.apexID; 
+
     let rank: IRank =
     {
-      UserID:   form.form.value.UserID,
-      UserName: form.form.value.UserName,
-      ApexID:   form.form.value.ApexID,
+      userID:   this.userID,
+      apexID:   this.apexID,
+      userName: this.userName,
       rankScore: form.form.value.rankScore,
       rankName: form.form.value.rankName
     }
     this.api.addGoal(rank)
+    console.log(rank)
   }
 
   deleteGoal(id: number) 

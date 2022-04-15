@@ -36,32 +36,32 @@ apexID: string = '';
 
   getLogin(form: NgForm){
   
-  let userName = form.form.value.UserName;
+  let user = form.form.value.UserName;
   let password = form.form.value.Password;
 
 
-    this.api.Login(userName,password).subscribe((response)=> {
+    this.api.Login(user,password).subscribe((response)=> {
       if (response == true){
          
-        this.api.getUser(userName).subscribe(
-          (response: any) => {this.Userinfo = response;}
-        ) 
-        this.userName = this.Userinfo.userName; 
-        this.userID  = this.Userinfo.userID; 
-        this.apexID  = this.Userinfo.apexID; 
-        //console.log(this.apexID) 
+        // this.api.getUser(user).subscribe(
+        //   (response: any) => {this.Userinfo = response;}
+        // ) 
+        // this.userName = this.Userinfo.userName; 
+        // this.userID  = this.Userinfo.userID; 
+        // this.apexID  = this.Userinfo.apexID; 
+        // //console.log(this.apexID) 
 
-         let useraccount: IUserInfo =
-         {
-          UserID: this.userID,
-          UserName: this.userName,
-          ApexID: this.apexID, 
-         }
+        //  let useraccount: IUserInfo =
+        //  {
+        //   UserID: this.userID,
+        //   UserName: this.userName,
+        //   ApexID: this.apexID, 
+        //  }
          
-         //post works | Need more logic
-         //this.api.postUserStat(useraccount) 
+        //  //post works | Need more logic
+        //  this.api.postUserStat(useraccount) 
 
-        this.router.navigate(['/user',userName])
+        this.router.navigate(['/user',user])
 
       }
       else{
