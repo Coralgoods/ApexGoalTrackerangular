@@ -1,16 +1,32 @@
-<h1>Apex Tracker Login</h1>
-<div class="login-form">
-    <form #loginForm="ngForm" (ngSubmit)="getLogin(loginForm)">
-        <label for="UserName">username:</label>
-        <input type="text" class="form-control" id="UserNameTextBox" placeholder="Enter username" name="UserName" ngModel required/>
-        <br>
-
-        <label for="Password">password:</label>
-        <input type="text" class="form-control" id="PasswordTextBox" placeholder="Enter password" name="Password" ngModel required/>
-        <br>
-
-        <input type="submit">
-    </form>   
+<!DOCTYPE html>
+<html>
+<head>
+  
+</head>
+<body>
+<div class="login-page">
+    <div class="login-container">   
+        <div class="login-header">
+            <h1>Apex Tracker Login</h1>
+        </div>
+        <div class="login-form">
+            <form #loginForm="ngForm" (ngSubmit)="getLogin(loginForm)">
+                <label for="UserName">username:</label>
+                <input type="text" class="form-control" id="UserNameTextBox" placeholder="Enter username" name="UserName" ngModel required/>
+                <br>
+        
+                <label for="Password">password:</label>
+                <input type="text" class="form-control" id="PasswordTextBox" placeholder="Enter password" name="Password" ngModel required/>
+                <br>
+        
+                <input type="submit">
+            </form>   
+        </div>
+        <div class="login-create">
+            <a class="nav-item nav-link" routerLink="/create" 
+            routerLinkActive="active">Create</a>
+        </div>
+    </div>
 </div>
-<a class="nav-item nav-link" routerLink="/create" 
-routerLinkActive="active">Create</a>
+</body>
+</html>
