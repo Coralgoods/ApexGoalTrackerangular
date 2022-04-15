@@ -36,22 +36,31 @@ export class RankComponent implements OnInit
 
   createGoal(form: NgForm) 
   {
+    console.log("This is what is passed")
+    console.log(form.form.value.rankScore)
+    console.log(form.form.value.rankName)
 
     this.api.getUser(this.userName).subscribe(
       (response: any) => {this.Userinfo = response;}
     ) 
-    this.userID  = this.Userinfo.userID; 
-    this.apexID  = this.Userinfo.apexID; 
+ 
 
+    this.userID  = this.Userinfo.userID; 
+    this.apexID  = this.Userinfo.apexID;
+
+    let rankScore = form.form.value.rankScore
+    console.log("rank Score below")
+    console.log(rankScore)
     let rank: IRank =
     {
-      userID:   this.userID,
-      apexID:   this.apexID,
-      userName: this.userName,
-      rankScore: form.form.value.rankScore,
-      rankName: form.form.value.rankName
+      UserID:   this.userID,
+      ApexID:   this.apexID,
+      UserName: this.userName,
+      RankScore: form.form.value.rankScore,
+      RankName: form.form.value.rankName
     }
     this.api.addGoal(rank)
+
     console.log(rank)
   }
 
