@@ -20,7 +20,7 @@ export class RankComponent implements OnInit
   userName = "Unknown";
   Userinfo: any;  
   userID: number = 0; 
-  goalID: number = 0;  
+  //goalID: number = 0;  
   apexID: string = ''; 
  
   constructor(private api: APICallService, private route: ActivatedRoute) { }
@@ -34,10 +34,16 @@ export class RankComponent implements OnInit
       //(response: any) => { this.rank = response; }
       (res) => {this.rank = res; console.log(res);console.log("Here")} 
     )
+ 
+
   }
 
 Goalupdate(form: NgForm)
 {
+  //let goalID: string = this.rank.GoalID; 
+
+  console.log("Goal value test")
+  console.log(this.rank)
   this.api.getUser(this.userName).subscribe(
     (response: any) => {this.Userinfo = response;}
   ) 
@@ -86,6 +92,7 @@ Goalupdate(form: NgForm)
       RankName: form.form.value.rankName
     }
     this.api.addGoal(rank)
+    window.location.reload(); 
 
     console.log(rank)
   }

@@ -3,6 +3,7 @@ import { APICallService } from '../apicall.service';
 import { ActivatedRoute } from '@angular/router';
 import { IUserStatsRecs } from '../interfaces/IUserStatsRecs';
 import { IUserInfo } from '../interfaces/IUserInfo';
+import { Chart, registerables } from 'chart.js';
 
 
 @Component({
@@ -19,8 +20,15 @@ Userinfo: any;
 userID: number = 0;  
 apexID: string = ''; 
 
+DateTime:any; 
+RankScore:any; 
+chart: any = []; 
 
-constructor(private api: APICallService, private route: ActivatedRoute) { }
+
+
+constructor(private api: APICallService, private route: ActivatedRoute) { 
+  Chart.register(...registerables);
+}
 
 UserStats!:IUserStatsRecs[]; 
 
@@ -48,8 +56,28 @@ UserStats!:IUserStatsRecs[];
           // {
           //   this.UserStats = data; 
           // }
-          (res: any[]) => this.UserStats1 = res
-        )
+          (res: any[]) => {this.UserStats1 = res; 
+            this.DateTime = this.UserStats1.allCurrentStats.map((Ustats: any) => Ustats.date)
+            this.RankScore = this.UserStats1.allCurrentStats.map((Ustats: any) => Ustats.rankSore)
+            console.log(res, this.DateTime, this.RankScore);
+          
+            //show chart data
+            this.chart = new Chart(`canvas`, {
+              type: 'line',
+              data: {
+                  labels: this.DateTime,
+                  datasets: [{
+                      label: 'Rank',
+                      data: this.RankScore,
+                      borderWidth: 3,
+                      backgroundColor: 'rgba(93.175,86,0.1)',
+                      borderColor: '#3e95cd'
+
+                  }]
+              }
+          });
+          
+          }); 
 
         //Code with the get User stats logic | standalone ****
       }

@@ -43,7 +43,7 @@ export class APICallService {
       return this.http.get(loginUri)
     }
     createUser(user: IUser){
-      return this.http.post(this.apiUri, user).subscribe()
+      return this.http.post(this.apiUri, user)
     }
 
     //rank methods 

@@ -32,7 +32,7 @@ export class CreateComponent implements OnInit {
       ApexID: form.form.value.ApexID
     }
     console.log(user);
-    this.api.createUser(user)
+    this.api.createUser(user).subscribe()
   }
 
 }
