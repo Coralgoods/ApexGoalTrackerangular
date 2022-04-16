@@ -6,7 +6,10 @@
 <body>
     <div class="user-page">
         <div class="user-header"> -->
-    
+<body>
+    <div>
+        <canvas id="canvas" width="400" height="50">{{chart}}</canvas>
+    </div>
 <table>
     <tr>
         <th>ID</th>
@@ -30,7 +33,16 @@
 
     </tr>
 </table>
-<app-rank></app-rank>
+
+<div class="d-grid gap-2">
+    <button class="btn btn-primary" type="button">Log stats</button>
+  </div>
+
+  <!-- Not having a rank record is causing issues - Fix if you can.  -->
+
+<!-- <app-rank></app-rank> -->
+
+</body>
         <!-- </div>
     </div>
 </body>

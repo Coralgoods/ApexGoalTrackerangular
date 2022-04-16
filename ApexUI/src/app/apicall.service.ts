@@ -5,6 +5,7 @@ import { IRank } from './interfaces/IRank';
 import { IUserStats } from './interfaces/IUserStats';
 import { Observable, observable } from 'rxjs';
 import { IUserInfo } from './interfaces/IUserInfo';
+import { IRankPut } from './interfaces/IRankPut';
 
 
 
@@ -16,13 +17,15 @@ export class APICallService {
   // private localHostNumber = 44381;
   private localHostNumber = 44397; //Eduardo's local host number
 
-  // private apiUri: string = `https://localhost:${this.localHostNumber}/user`
-  // private apiRankUri: string = `https://localhost:${this.localHostNumber}/api/usergoal`
-  // private apiCurrentStats: string =`https://localhost:${this.localHostNumber}/api/CurrentStats`
-//https://blahapithingy.azure-api.net/api/userGoal/eddie
-  private apiUri: string = `https://blahapithingy.azure-api.net/user`
-  private apiRankUri: string = `https://blahapithingy.azure-api.net/api/usergoal`
-  private apiCurrentStats: string =`https://blahapithingy.azure-api.net/api/CurrentStats`
+  private apiUri: string = `https://localhost:${this.localHostNumber}/user`
+  private apiRankUri: string = `https://localhost:${this.localHostNumber}/api/usergoal`
+  private apiCurrentStats: string =`https://localhost:${this.localHostNumber}/api/CurrentStats`
+
+  //https://blahapithingy.azure-api.net/api/userGoal/eddie
+  // private apiUri: string = `https://blahapithingy.azure-api.net/user`
+  // private apiRankUri: string = `https://blahapithingy.azure-api.net/api/usergoal`
+  // private apiCurrentStats: string =`https://blahapithingy.azure-api.net/api/CurrentStats`
+  
   TestUserStats: any = []
 
   passedUserName: string = ' '
@@ -40,7 +43,7 @@ export class APICallService {
       return this.http.get(loginUri)
     }
     createUser(user: IUser){
-      return this.http.post(this.apiUri, user).subscribe()
+      return this.http.post(this.apiUri, user)
     }
 
     //rank methods 
@@ -50,9 +53,15 @@ export class APICallService {
       console.log(this.http.get(`${this.apiRankUri}/${userName}`))
       return this.http.get(`${this.apiRankUri}/${userName}`);
     }
-    updateGoal(rank: IRank, userName:string, goalId:number) 
+    //updateGoal(rank: IRankPut, goalId:number) 
+    updateGoal(rank: IRankPut, goalId:number)
     {
-      return this.http.put(`https://localhost:${this.localHostNumber}/usergoal/${userName}/${goalId}`, rank).subscribe()
+      console.log("Update Goal called")
+      console.log(`${this.apiRankUri}/${goalId}`); 
+      console.log(rank)
+      return this.http.put(`${this.apiRankUri}/${goalId}`, rank).subscribe()
+      //return this.http.put(`https://localhost:${this.localHostNumber}/usergoal/${userName}/${goalId}`, rank).subscribe()
+     
     }
     addGoal(rank: IRank) 
     {
@@ -81,10 +90,10 @@ export class APICallService {
     }
 
     //Test Don't need 
-    receiveuserName($event: any){
-    this.passedUserName=$event
-    console.log(this.passedUserName)
-}
+    // receiveuserName($event: any){
+    // this.passedUserName=$event
+    // console.log(this.passedUserName)
+    //}
     //Test for send and get message
     //message:string | undefined
     

@@ -17,27 +17,31 @@ html {
     background-size: cover;
   } */
 
-  img.bg {
-    /* Set rules to fill background */
-    min-height: 100%;
+
+
+  /* Took out - Eduardo - Start*/
+/*   img.bg {
+ 
+    min-height: 100%; 
     min-width: 1024px;
       
-    /* Set up proportionate scaling */
-    width: 100%;
+    
+    width: 100%; 
     height: auto;
       
-    /* Set up positioning */
-    position: fixed;
+  
+    position: fixed; 
     top: 0;
     left: 0;
   }
   
-  @media screen and (max-width: 1024px) { /* Specific to this particular image */
+  @media screen and (max-width: 1024px) {
     img.bg {
       left: 50%;
-      margin-left: -512px;   /* 50% */
+      margin-left: -512px;   
     }
     body{
         background-image: url("https://preview.redd.it/r45kuz272iq21.png?width=960&crop=smart&auto=webp&s=c2250ef6193f3873ee4284a1f476ac43f724850c");
     }
-  }
+  } */
+   /* Took out - Eduardo - End*/

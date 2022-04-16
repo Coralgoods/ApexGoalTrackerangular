@@ -38,7 +38,8 @@ apexID: string = '';
   
   let user = form.form.value.UserName;
   let password = form.form.value.Password;
-
+ console.log("Tryed to log in")
+ console.log(user)
 
     this.api.Login(user,password).subscribe((response)=> {
       if (response == true){
