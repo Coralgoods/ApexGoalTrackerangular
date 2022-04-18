@@ -7,35 +7,39 @@
     <div class="user-page">
         <div class="user-header"> -->
 <body>
+    <h2>Rank progress chart</h2>
     <div>
-        <canvas id="canvas" width="400" height="50">{{chart}}</canvas>
+        <canvas id="canvas" width="400" height="150">{{chart}}</canvas>
     </div>
-<table>
+    <h2>Stat log</h2>
+<table class = "table">
+    <thead class="thead-dark">
     <tr>
-        <th>ID</th>
-        <th>User ID</th>
-        <th>ApedID</th>
-        <th>User Name</th>
-        <th>Date</th>
-        <th>Rank Score</th>
-        <th>Rank Name</th>
-        <th>Banner</th>
+        <!-- <th scope="col">ID</th> -->
+        <!-- <th scope="col">User ID</th> -->
+        <th scope="col">Apex ID</th>
+        <!-- <th scope="col">User Name</th> -->
+        <th scope="col">Date</th>
+        <th scope="col">Rank Score</th>
+        <th scope="col">Rank Name</th>
+        <!-- <th scope="col">Banner</th> -->
     </tr>
+ </thead>
     <tr *ngFor="let stats of UserStats1.allCurrentStats">
-        <td>{{stats.id}}</td>
-        <td>{{stats.userID}}</td>
+        <!-- <td>{{stats.id}}</td> -->
+        <!-- <td>{{stats.userID}}</td> -->
         <td>{{stats.apexID}}</td>
-        <td>{{stats.userName}}</td>
+        <!-- <td>{{stats.userName}}</td> -->
         <td>{{stats.date}}</td>
         <td>{{stats.rankSore}}</td>
         <td>{{stats.rankName}}</td>
-        <td>{{stats.banner}}</td>
+        <!-- <td>{{stats.banner}}</td> -->
 
     </tr>
 </table>
 
 <div class="d-grid gap-2">
-    <button class="btn btn-primary" type="button">Log stats</button>
+    <button class="btn btn-primary" (click)="logUserStats()" type="button">Log stat</button>
   </div>
 
   <!-- Not having a rank record is causing issues - Fix if you can.  -->
