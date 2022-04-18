@@ -1,48 +1,93 @@
 <!-- <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <link rel="stylesheet" href="user.component.css">
 </head>
+ -->
 <body>
-    <div class="user-page">
-        <div class="user-header"> -->
-<body>
+    <div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h1>Welcome {{userName}}</h1>
+            <img src="https://api.mozambiquehe.re/assets/banners/bangalore.jpg" class="img-fluid" alt="Responsive image">
+            <h2>Current Stats</h2>
+            <p>An overview of the legend you are... </p>
+            <p>Your rank goal is = {{Rankgoal}}</p>
+        </div>
+        <div class="col-md-6">
+            <br>
+            <br>
+           <h1>Update rank score here</h1>
+           <div class="login-form">
+               <form #loginForm="ngForm" (ngSubmit)="Goalupdate(loginForm)">
+                   <label for="rankScore">Rank Score:</label>
+                   <input type="number" class="form-control" id="rankScoreTextBox" placeholder="Enter rank score" name="rankScore" ngModel required/>
+                   <br>        
+<!--                    <label for="rankName">rankName</label>
+                   <input type="text" class="form-control" id="rankNameTextBox" placeholder="Enter rank name" name="rankName" ngModel required/>
+                   <br> -->           
+                   <input class="btn btn-primary" type="submit">
+               </form>   
+           </div>
+
+        </div>
+      </div>
+      </div>
+      <br>
+    <div class="container">
+    <h2>Rank progress chart</h2>
+    <p>To make the big data easy to understand.</p>
     <div>
-        <canvas id="canvas" width="400" height="50">{{chart}}</canvas>
+        <canvas id="canvas" width="400" height="150">{{chart}}</canvas>
     </div>
-<table>
+    <div class="d-grid gap-2">
+        <button class="btn btn-primary" (click)="logUserStats()" type="button">Click to log new data point</button>
+      </div>
+    </div>
+      <div class="container"> 
+          <br> 
+      <h2>Stat log</h2>
+      <p>Logged records of your Apex progress. The raw data.</p>
+    <br>
+<table class = "table table-bordered table-striped">
+    <thead>
     <tr>
         <th>ID</th>
-        <th>User ID</th>
-        <th>ApedID</th>
-        <th>User Name</th>
+        <!-- <th scope="col">User ID</th> -->
+        <th>Apex ID</th>
+        <!-- <th scope="col">User Name</th> -->
         <th>Date</th>
         <th>Rank Score</th>
         <th>Rank Name</th>
-        <th>Banner</th>
+        <th>Apex Level</th>
+        <th>Level progress (%)</th>
+        <th>Rank Season</th>
+        <!-- <th>Current Selected Legend</th> -->
+        <!-- <th scope="col">Banner</th> -->
     </tr>
+ </thead>
+ <tbody id="myTable">
     <tr *ngFor="let stats of UserStats1.allCurrentStats">
         <td>{{stats.id}}</td>
-        <td>{{stats.userID}}</td>
+        <!-- <td>{{stats.userID}}</td> -->
         <td>{{stats.apexID}}</td>
-        <td>{{stats.userName}}</td>
+        <!-- <td>{{stats.userName}}</td> -->
         <td>{{stats.date}}</td>
         <td>{{stats.rankSore}}</td>
         <td>{{stats.rankName}}</td>
-        <td>{{stats.banner}}</td>
-
+        <td>{{stats.apexLevel}}</td>
+        <td>{{stats.nextLevelPercent}}</td>
+        <td>{{stats.rankedSeason}}</td>   
+        <!-- <td>{{stats.selectedLegend}}</td>   -->
+        <!-- <td>{{stats.banner}}</td> -->
     </tr>
+</tbody>
 </table>
-
-<div class="d-grid gap-2">
-    <button class="btn btn-primary" type="button">Log stats</button>
-  </div>
-
-  <!-- Not having a rank record is causing issues - Fix if you can.  -->
-
+</div>
+<!-- Not having a rank record is causing issues - Fix if you can.  -->
 <!-- <app-rank></app-rank> -->
-
 </body>
+
         <!-- </div>
     </div>
 </body>

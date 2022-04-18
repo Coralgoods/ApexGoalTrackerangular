@@ -7,7 +7,6 @@ export interface IUserStatsRecs
     user:string,
     apexID:string,
     userName:number
-    //date: Data,
     date: string,
     rankSore: number,
     rankName: string,  
