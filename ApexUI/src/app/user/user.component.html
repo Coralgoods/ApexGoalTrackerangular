@@ -4,6 +4,19 @@
   <link rel="stylesheet" href="user.component.css">
 </head>
  -->
+
+ <div class="container">
+ 
+
+  <ul class="nav justify-content-end">
+    <li>
+        <nav class="navbar">
+            <a class="nav-item nav-link" routerLink="/login" 
+            routerLinkActive="active" >Log out</a>
+          </nav>
+    </li>
+  </ul>
+
 <body>
     <div class="container">
     <div class="row">
@@ -11,8 +24,14 @@
             <h1>Welcome {{userName}}</h1>
             <img src="https://api.mozambiquehe.re/assets/banners/bangalore.jpg" class="img-fluid" alt="Responsive image">
             <h2>Current Stats</h2>
-            <p>An overview of the legend you are... </p>
-            <p>Your rank goal is = {{Rankgoal}}</p>
+            <h6>last updated: {{this.lastDate}}</h6>
+            <br>
+            <!-- <p>An overview of the legend you are... </p> -->
+            <img src={{this.Rimage}} class="img-fluid" alt="Responsive image">
+            <p>Your rank: {{this.Rank}} division {{this.rankDiv}}</p>
+            <p>Rank Score: {{this.Rscore}}</p>
+            <p>Last selected legend: {{this.Legend}}</p>
+            <p>Apex level: {{this.level}}</p>
         </div>
         <div class="col-md-6">
             <br>
@@ -20,12 +39,9 @@
            <h1>Update rank score here</h1>
            <div class="login-form">
                <form #loginForm="ngForm" (ngSubmit)="Goalupdate(loginForm)">
-                   <label for="rankScore">Rank Score:</label>
+                   <label for="rankScore">Current rank goal {{Rankgoal}}</label>
                    <input type="number" class="form-control" id="rankScoreTextBox" placeholder="Enter rank score" name="rankScore" ngModel required/>
-                   <br>        
-<!--                    <label for="rankName">rankName</label>
-                   <input type="text" class="form-control" id="rankNameTextBox" placeholder="Enter rank name" name="rankName" ngModel required/>
-                   <br> -->           
+                   <br>                
                    <input class="btn btn-primary" type="submit">
                </form>   
            </div>
