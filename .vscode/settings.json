@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/57cae893-59ff-47d6-8d1a-205a29423016/resourceGroups/mytemplateresoursegroup/providers/Microsoft.Web/sites/ApexTrackerAngular",
+    "appService.deploySubpath": "ApexUI\\dist\\apex-ui"
+}
