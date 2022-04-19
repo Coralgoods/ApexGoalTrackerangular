@@ -17,9 +17,9 @@ export class APICallService {
   // private localHostNumber = 44381;
   private localHostNumber = 44397; //Eduardo's local host number
 
-  //private apiUri: string = `https://localhost:${this.localHostNumber}/user`
-  //private apiRankUri: string = `https://localhost:${this.localHostNumber}/api/usergoal`
-  //private apiCurrentStats: string =`https://localhost:${this.localHostNumber}/api/CurrentStats`
+  // private apiUri: string = `https://localhost:${this.localHostNumber}/user`
+  // private apiRankUri: string = `https://localhost:${this.localHostNumber}/api/usergoal`
+  // private apiCurrentStats: string =`https://localhost:${this.localHostNumber}/api/CurrentStats`
 
   //https://blahapithingy.azure-api.net/api/userGoal/eddie
    private apiUri: string = `https://blahapithingy.azure-api.net/user`

@@ -31,13 +31,16 @@ export class CreateComponent implements OnInit {
   createUser(form: NgForm) 
   {
     this.userName = form.form.value.UserName; 
+    this.apexID = form.form.value.ApexID
+
     let user: IUser =
     {
-      UserName: form.form.value.UserName,
+      UserName: this.userName,
       Password: form.form.value.Password,
-      ApexID: form.form.value.ApexID
+      ApexID: this.apexID,
     }
     console.log(user);
+    console.log(this.apexID);
     this.api.createUser(user).subscribe(
       (response)=> { this.UserIDreturn = response; 
       console.log(this.UserIDreturn)
@@ -61,6 +64,7 @@ export class CreateComponent implements OnInit {
       this.api.addGoal(rankput)
       this.api.postUserStat(userpost).subscribe()
       console.log("Done")
+      this.router.navigate(['/login'])
       
     })
     //wait for the account to be created
