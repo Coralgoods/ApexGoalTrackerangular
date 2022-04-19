@@ -58,6 +58,14 @@ rankDiv: string = '';
 Selectedlevel: any; 
 level: string = ''; 
 
+//Mapped - legend image
+LegendImgs: any; 
+LegendPickedImg: string = ''; 
+
+//Mapped - Banner image
+BannerImgs: any; 
+BannerPickedImg: string = ''; 
+
 //LastStatrecord: any; 
 //Apex ranks
 Bronze: number = 0; 
@@ -126,10 +134,19 @@ UserStats!:IUserStatsRecs[];
             this.Selectedlevel = this.UserStats1.allCurrentStats.map((img: any) => img.apexLevel)
             this.level = this.Selectedlevel[this.Selectedlevel.length - 1];
 
-            //Get last selected Apex level
+            //Get last selected Rank Image
             this.RankImg = this.UserStats1.allCurrentStats.map((img: any) => img.rankImg)
             this.Rimage = this.RankImg[this.RankImg.length - 1];
-            console.log(this.Rimage)
+
+            //Get last selected Legend img
+            this.LegendImgs = this.UserStats1.allCurrentStats.map((img: any) => img.icon)
+            this.LegendPickedImg = this.LegendImgs[this.LegendImgs.length - 1];
+            console.log(this.LegendPickedImg)
+
+            //Get last selected banner img
+            this.BannerImgs = this.UserStats1.allCurrentStats.map((img: any) => img.banner)
+            this.BannerPickedImg = this.BannerImgs[this.BannerImgs.length - 1];
+            console.log(this.BannerPickedImg)
 
             //show chart data
             this.chart = new Chart(`canvas`, {
@@ -251,6 +268,7 @@ UserStats!:IUserStatsRecs[];
   }
 
 }
+
 
 
 
