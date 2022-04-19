@@ -22,20 +22,21 @@
     <div class="row">
         <div class="col-md-6">
             <h1>Welcome {{userName}}</h1>
-            <img src="https://api.mozambiquehe.re/assets/banners/bangalore.jpg" class="img-fluid" alt="Responsive image">
-            <h2>Current Stats</h2>
-            <h6>last updated: {{this.lastDate}}</h6>
-            <br>
-            <!-- <p>An overview of the legend you are... </p> -->
-            <img src={{this.Rimage}} class="img-fluid" alt="Responsive image">
-            <p>Your rank: {{this.Rank}} division {{this.rankDiv}}</p>
-            <p>Rank Score: {{this.Rscore}}</p>
-            <p>Last selected legend: {{this.Legend}}</p>
-            <p>Apex level: {{this.level}}</p>
+            <img src={{this.LegendPickedImg}} class="img-fluid" alt="Responsive image">
+
         </div>
         <div class="col-md-6">
             <br>
-            <br>
+           <h2>Current Stats</h2>
+           <img src={{this.BannerPickedImg}} class="img-fluid" alt="Responsive image">
+           <h6>last updated: {{this.lastDate}}</h6>
+           <br>
+           <!-- <p>An overview of the legend you are... </p> -->
+           <img src={{this.Rimage}} class="img-fluid" alt="Responsive image">
+           <p>Your rank: {{this.Rank}} division {{this.rankDiv}}</p>
+           <p>Rank Score: {{this.Rscore}}</p>
+           <p>Last selected legend: {{this.Legend}}</p>
+           <p>Apex level: {{this.level}}</p>
            <h1>Update rank score here</h1>
            <div class="login-form">
                <form #loginForm="ngForm" (ngSubmit)="Goalupdate(loginForm)">
@@ -45,7 +46,6 @@
                    <input class="btn btn-primary" type="submit">
                </form>   
            </div>
-
         </div>
       </div>
       </div>
