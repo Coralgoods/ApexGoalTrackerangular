@@ -218,8 +218,7 @@ UserStats!:IUserStatsRecs[];
               }
           });
           //New chart here. 
-          
-          //New Chart here. 
+            //New Chart here. 
           }); 
       }
     ) 

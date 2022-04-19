@@ -82,8 +82,6 @@ export class APICallService {
     //postUserStat(User: IUserInfo)
     postUserStat(User: any)
     {
-      console.log(this.http.post(this.apiCurrentStats, User))
-      console.log(User)
       return this.http.post(this.apiCurrentStats, User); 
       
     }
